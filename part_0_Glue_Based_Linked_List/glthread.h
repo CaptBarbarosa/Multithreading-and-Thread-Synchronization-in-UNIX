@@ -18,8 +18,11 @@ typedef struct gldll_ {
 /* 
    In the traditional doubly linked lists we'd have a void *data. Te void pointer is for efficiency and as you can observe we don't have a void pointer in the gll. But then, how is the glued data structure holds the data?
    The traditional d.l.l
-
-
 */
+
+
+
+
+
 
 #endif
