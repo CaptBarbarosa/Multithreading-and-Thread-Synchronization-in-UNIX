@@ -12,41 +12,27 @@
 */
 
 
-int create_a_thread();
+void create_a_thread();
 static void * printer(void *);
-
-
-
-
-
-
-
-
-
-
-
-
+void sleep_one_second(void);
 
 
 int main(int argc, char **argv){
-    int thread_id = create_a_thread();
-    pause();
-    printf("main fn is paused\n");
+    create_a_thread();
+    sleep_one_second();
     return 0;
 }
 
 
-
-
-int create_a_thread(){
+void create_a_thread(){
     //pthread_t is an opaque onject. You don't have to know its internals
     pthread_t pthread1;
     static char *thread_input = "I'm thread number 1. Hello World\n\n"; //This will be passed to the thread.
-    int is_succesful = pthread_create(&pthread1, /*If succesfully created it returns 0*/
+    pthread_t tid= pthread_create(&pthread1, /*If succesfully created it returns 0*/
             NULL,
             printer,
             (void *)thread_input); /*The thread_input has to be either heap or static.*/
-    return is_succesful;
+    pthread_join(tid,NULL);
 }
 
 static void *printer(void *thread_input){
@@ -54,4 +40,7 @@ static void *printer(void *thread_input){
     printf("%s",what_to_print);
 }
 
-
+void sleep_one_second(void){
+    printf("The parent thread is in the \"sleep_one_second\" function and is sleeping for a second.\nPlease note that only the parent thread comes here and not the child thread\n");
+    sleep(1);
+}
