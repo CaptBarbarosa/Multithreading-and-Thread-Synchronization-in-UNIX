@@ -12,8 +12,8 @@
 */
 
 
-void create_a_thread();
-
+int create_a_thread();
+static void * printer(void *);
 
 
 
@@ -29,7 +29,8 @@ void create_a_thread();
 
 
 int main(int argc, char **argv){
-    create_a_thread();
+    int thread_id = create_a_thread();
+    pause();
     printf("main fn is paused\n");
     return 0;
 }
@@ -37,13 +38,20 @@ int main(int argc, char **argv){
 
 
 
-void create_a_thread(){
+int create_a_thread(){
     //pthread_t is an opaque onject. You don't have to know its internals
-    pthread_t pthreadl;
-    static char *thread_input = "I'm thread number 1. Hello World"; //This will be passed to the thread.
-    int is_successful = pthread_create
+    pthread_t pthread1;
+    static char *thread_input = "I'm thread number 1. Hello World\n\n"; //This will be passed to the thread.
+    int is_succesful = pthread_create(&pthread1, /*If succesfully created it returns 0*/
+            NULL,
+            printer,
+            (void *)thread_input); /*The thread_input has to be either heap or static.*/
+    return is_succesful;
 }
 
-
+static void *printer(void *thread_input){
+    char *what_to_print = (char *) thread_input;
+    printf("%s",what_to_print);
+}
 
 
