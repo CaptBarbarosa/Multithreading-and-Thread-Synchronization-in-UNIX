@@ -4,7 +4,7 @@
 #include<unistd.h>
 
 /*
-   Please note that if the parent thread (main thread) dies, so do all child threads. This makes sense because when the main thread terminates, the process itself ends. When a process ends, all its threads are terminated as well.
+   Please note that if the parent thread (main thread) dies with a return statent, so do all child threads. This makes sense because when the main thread terminates, the process itself ends. When a process ends, all its threads are terminated as well.
 
    For a parent thread to die gracefully without affecting child threads, it can call pthread_exit(NULL), allowing the process to remain alive until all threads have completed their execution. Alternatively, the parent thread can use pthread_join to wait for child threads to finish before terminating.
    
@@ -20,6 +20,7 @@ void sleep_one_second(void);
 int main(int argc, char **argv){
     create_a_thread();
     sleep_one_second();
+    printf("At the main\n");
     return 0;
 }
 
@@ -32,10 +33,12 @@ void create_a_thread(){
             NULL,
             printer,
             (void *)thread_input); /*The thread_input has to be either heap or static.*/
-    pthread_join(tid,NULL);
+    printf("->The sleep_one_second function may not have been run because of the pthread_exit in the next line.Please notice that the main thread killed itself but the child thread lives\n");
+    pthread_exit(0);
 }
 
 static void *printer(void *thread_input){
+    sleep(2);
     char *what_to_print = (char *) thread_input;
     printf("%s",what_to_print);
 }
