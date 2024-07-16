@@ -1,6 +1,0 @@
-Assume you have a huge software. You also multithreaded your software but they need to interchange some data. You can use some of the following techniques:
-  1.) Sockets
-  2.) Msg Queues
-  3.) Pipes
-  4.) Shared Memory
-Even though these are usable, the recommended way for communication between threads is using callbacks and function pointers. Because they are a lot more faster. They don't actually require transfer of data, it doesn't require kernel attention.
