@@ -10,6 +10,7 @@
 */
 // For further explanation check: https://www.oreilly.com/library/view/understanding-linux-network/0596002556/ch04.html
 
+// Notification chains are generally used in the networking of Linux Kernel.
 
 int main(){
     return 0;
