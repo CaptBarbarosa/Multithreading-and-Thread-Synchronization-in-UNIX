@@ -8,16 +8,30 @@ pthread_mutex_t mutex_1;
 int condition=0;
 
 void *waiting_thread(void *arg){
-    printf("Deneme");
+    int i;
+    for (i=0; i<5;i++){
+        pthread_mutex_lock(&mutex_1);
+        condition++;
+        //printf("->Condition is: %d\n",condition);
+        pthread_mutex_unlock(&mutex_1);
+    }
+    return NULL;
 }
 
 
 void *signalling_thread(void *arg){
-    prints("Deneme2");
+    {
+        pthread_mutex_lock(&mutex_1);
+        condition--;
+        //printf("-->Condition is: %d\n",condition);
+        pthread_mutex_unlock(&mutex_1);
+    }
+    return NULL;
 }
 
 int main(){
     int i;
+    pthread_mutex_init(&mutex_1, NULL);
     pthread_t my_threads[2];
     for(i=0;i<2;i++){
         if(i==1){
@@ -36,7 +50,7 @@ int main(){
     }
     for(i=0; i<2; i++){
         if(pthread_join(my_threads[i], NULL) != 0){
-            perror("Thread %d failed to join\n",i);
+            perror("Failed to join\n");
             exit(1);
         }
     }
