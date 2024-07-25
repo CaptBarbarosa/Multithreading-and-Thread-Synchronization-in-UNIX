@@ -1,7 +1,7 @@
-#include<stdio.h>
-#include<stdlib.h>
-
-
+#include <stdlib.h>
+#include <memory.h>
+#include <assert.h>
+#include "notif.h"
 
 /*
     Notification chains is an architectual concept used to notify multiple subscribers interested in the particular event

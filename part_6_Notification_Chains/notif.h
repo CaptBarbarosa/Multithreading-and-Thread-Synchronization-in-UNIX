@@ -16,12 +16,15 @@ typedef struct notif_chain_elem_ {
     nfc_app_cb app_cb;
     glthread_t glue;
 } notif_chain_elem_t;
-GLTHREAD_TO_STRUCT(glthread_glue_to_notif_chain_elem, notif_chain_elem_t, glue);
+#define GLTHREAD_TO_STRUCT(glthread_node, container_type, field_name)  \
+    ((container_type *)((char *)(glthread_node) - offsetof(container_type, field_name)))
+
 
 typedef struct notif_chain_ {
     char nfc_name[64];
     glthread_t notif_chain_head;
 } notif_chain_t;
+
 
 #endif /* __NOTIF_CHAIN__ */
 
