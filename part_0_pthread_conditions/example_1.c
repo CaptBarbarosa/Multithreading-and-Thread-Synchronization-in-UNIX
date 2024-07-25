@@ -3,11 +3,22 @@
 #include <pthread.h>
 #include <unistd.h>
 pthread_mutex_t mutex;
+/*
+General working: 
+    pthread_cond_wait is used for blocking a thread until a particular condition is met. pthread_cond_wait should be called with mutex locked by the signaling thread.
+
+    pthread_cond_signal wakes up one or more threads waiting on the condition variable. And it calls the functions with mutexes.
+
+    When the thread calls the pthread_cond_wait, the pthread_cond_t cond is set to true. 
+
+*/
+
+// Important Note: pthread_cond_wait puts the thread to sleep.
 pthread_cond_t cond;
 int condition = 0;
 void* waiting_thread(void* arg) {
     pthread_mutex_lock(&mutex);
-    while (condition == 0) {
+    while (condition == 0) { //Used for some extra security.
         printf("Waiting for the condition to be met...\n");
         pthread_cond_wait(&cond, &mutex);
     }
