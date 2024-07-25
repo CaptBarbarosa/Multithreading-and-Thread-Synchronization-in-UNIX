@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <pthread.h>
 #include <unistd.h>
-pthread_mutex_t mutex;
+pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
 /*
 General working: 
     pthread_cond_wait is used for blocking a thread until a particular condition is met. pthread_cond_wait should be called with mutex locked by the signaling thread.
@@ -14,7 +14,7 @@ General working:
 */
 
 // Important Note: pthread_cond_wait puts the thread to sleep.
-pthread_cond_t cond;
+pthread_cond_t cond = PTHREAD_COND_INITIALIZER;
 int condition = 0;
 void* waiting_thread(void* arg) {
     pthread_mutex_lock(&mutex);
