@@ -14,6 +14,9 @@
 pthread_t thread1, thread2;
 
 void* task(void* arg) {
+    // You can set whether or not a thread is cancellable via pthread_setcancelstate.
+    // If you uncomment the code below, you will observe that the thread 2 will fail to cancel it.
+    //pthread_setcancelstate(PTHREAD_CANCEL_DISABLE,0);
     printf("Thread 1: Starting task\n");
     for (int i = 0; i < 10; i++) {
         printf("Thread 1: Working on iteration %d\n", i + 1);
