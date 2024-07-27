@@ -1,0 +1,8 @@
+    Unlike asynchronous cancellation, in the deferred cancellation the developer controls as to which points the thread is allowed to cancel. This points are called "Cancellation Points". Developer should select a cancellation point in which no variants, memory leaks or deadlocks occur.
+    
+    Deferred cancellation is used to handle the troubles associated with the asynchronous thread cancellation discussed in part 7.
+
+    We set cancellation point with pthread_testcancel() function.
+
+
+
