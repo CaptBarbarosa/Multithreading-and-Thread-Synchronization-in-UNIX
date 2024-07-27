@@ -4,4 +4,9 @@
 
     But if a thread is set to deferred mode, the OS terminates the thread instantly (Asynchronous).
 
-    Asynchronous cancellation allows the termination of threads instantly. But it be dangerous as it can be in the critical section
+    Asynchronous cancellation allows the termination of threads instantly. But it be dangerous as it can cause:
+--> The thread might be in the critical section.
+--> Thread might have allocated some memory but couldn't free them causing memory leaks
+--> Threads might have open sockets etc but didn't close them yet
+--> Mutexes might be left in locked state for forever. (Deadlocked)
+--> Data structure corruption (Invariant)
