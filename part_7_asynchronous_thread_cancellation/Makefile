@@ -1,6 +1,6 @@
-co_and_r_main:
-	gcc -o main.exe main.c -pthread
-	./main.exe
+co_and_r_0:
+	gcc -o 0_asynchronous_cancellation.exe 0_asynchronous_cancellation.c -pthread
+	./0_asynchronous_cancellation.exe
 
 
 co_and_r_1:

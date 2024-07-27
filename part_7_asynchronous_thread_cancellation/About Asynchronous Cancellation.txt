@@ -1,0 +1,7 @@
+    Assume that we have two threads. thread_1 and thread_2. They both are in operation and thread_1 tries to cancel thread_2. The thread_1 sends a cancellation request [CR(pthread_cancel)].
+    
+    Normally when a thread tries to cancel another threat, the cancellation request [CR(pthread_cancel())] is queued by OS. It isn't delivered immediately. The OS afterwards, looks for an opportunity to terminate thread T2. As said before this is normally. The threads are 
+
+    But if a thread is set to deferred mode, the OS terminates the thread instantly (Asynchronous).
+
+    Asynchronous cancellation allows the termination of threads instantly. But it be dangerous as it can be in the critical section
