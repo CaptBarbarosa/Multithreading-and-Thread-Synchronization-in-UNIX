@@ -22,7 +22,7 @@ int main(){
         printf("Failed to set it joinable");
     }
     if (pthread_create(&child_thread, &attr, child_thread_function, NULL) != 0){ //Threads are joinable by default actually.
-        printf(s"Failed to create thread\n");
+        printf("Failed to create thread\n");
         return 1;}
 
     printf("Parent thread is doing its thing\n"); // Perform some tasks
