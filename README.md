@@ -15,16 +15,16 @@ This project is based on the "Part A - Multithreading & Thread Synchronization -
    - Creating and managing threads.
 
 2. **Concurrency vs Parallelism**
-   - Understanding the difference between concurrency and parallelism.
+   - Understanding the difference between concurrency and parallelism. (You can find this in my PDF notes)
 
 3. **Joinable and Detached Threads**
    - Managing thread lifecycles: joinable and detached threads.
 
 4. **Inter Thread Communication**
-   - Methods for threads to communicate with each other.
+   - Methods for threads to communicate with each other. (You can find this in my PDF notes)
 
 5. **Notification Chains**
-   - Implementing notification chains for thread communication.
+   - Implementing notification chains for thread communication. (You can find this in my PDF notes)
 
 6. **Thread Cancellation**
    - Asynchronous and deferred thread cancellation mechanisms.
