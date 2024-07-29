@@ -18,8 +18,10 @@ void* modify_balance(void* arg) {
         if(thread_id==1){
             printf("---");}
         printf("->This is thread %d modifying\nModifies %d amount, the new balance is %d\n\n", thread_id, amount, bank_balance);
-        sleep(2); //Please notice that till the thread wakes up and leaces the lock, other thread can't enter.
+        //Please notice that till the thread wakes up and leaves the lock, other thread can't enter.
         pthread_mutex_unlock(&mutex);
+        int sleep_time = 500000+ rand()%2500000;
+        usleep(sleep_time);
     }
     return NULL;
 }
