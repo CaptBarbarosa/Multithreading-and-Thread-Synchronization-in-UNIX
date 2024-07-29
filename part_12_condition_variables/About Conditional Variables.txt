@@ -1,0 +1,5 @@
+    Conditional variables are basically synchronization via sleep and wakeup signals and mutexes.
+
+    Con. Var. + Mutex is what it takes to implement advanced thread synchronization scheme. 
+
+    There is a phenomenon called spurious wake-ups. A thread waiting on a condition can be wake up without being explicitly signaled for several reasons such as hardware interrupts, race conditions or issues within the operating system scheduler. 
