@@ -58,6 +58,6 @@ int main() {
     }
 
     pthread_mutex_destroy(&mutex);
-    return 0;
+   return 0;
 }
 
