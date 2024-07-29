@@ -8,7 +8,7 @@ pthread_barrier_t barrier;
 
 void* routine(void* args) {
     while (1) {
-        printf("Waiting at the barrier...\n");
+        printf("Waiting at the barrier I am thread %d...\n",*((int*) args));
         sleep(1);
         pthread_barrier_wait(&barrier);
         printf("We passed the barrier\n");
@@ -21,7 +21,7 @@ int main(int argc, char *argv[]) {
 	int i;
     pthread_barrier_init(&barrier, NULL, 10);
 	for (i = 0; i < 10; i++) {
-		if (pthread_create(&th[i], NULL, &routine, NULL) != 0) {
+		if (pthread_create(&th[i], NULL, &routine, &i) != 0) {
 			perror("Failed to create thread");
 		}
 	}
