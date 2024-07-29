@@ -1,0 +1,7 @@
+    Thread barriers are a thread synchonization data structure that stops all incoming threads at a particular line of code until some specified number of threads have arrived
+    
+    Meaning it limits the number of threads.
+
+    If we need to wait for a number of threads to complete so that the overall task can proceed then we use barrier synchronization.
+
+    Example use: Let's say you are using an internet download manager (IDM) and downloading multiple files out of internet. IDM reports file download succesfull only after all threads downloads their files.
