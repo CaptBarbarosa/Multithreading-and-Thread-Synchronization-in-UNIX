@@ -12,6 +12,9 @@
 	gcc -o 3_producer_consumer.exe 3_producer_consumer.c -pthread
 	./3_producer_consumer.exe
 
+homework:
+	gcc -o homework.exe homework.c -pthread
+	./homework.exe
 
 clean_all:
 	rm -v *.exe
