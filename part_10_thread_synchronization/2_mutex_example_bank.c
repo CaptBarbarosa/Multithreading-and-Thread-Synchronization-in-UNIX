@@ -1,8 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <pthread.h>
 #include <time.h>
 
+#define NUM_CUSTOMERS 10
+#define NUM_THREADS 2
+#define NUM_OPERATIONS 1000
+
 int id = 0;
+pthread_mutex_t mutex;
 
 typedef struct Customer {
     int customer_id;
@@ -17,12 +23,30 @@ Customer* create_Customer(Customer *tail) {
         exit(1);
     }
     cust_to_add->customer_id = id++;
-    cust_to_add->bank_balance = 1000 + rand() % 10000; // Random bank balance between 1000 and 10999
+    cust_to_add->bank_balance = 1000 + rand() % 10000; 
     cust_to_add->next = NULL;
     if (tail != NULL) {
         tail->next = cust_to_add;
     }
     return cust_to_add;
+}
+
+void* modify_balance(void* arg) {
+    Customer* head = (Customer*) arg;
+    for (int i = 0; i < NUM_OPERATIONS; i++) {
+        pthread_mutex_lock(&mutex);
+        Customer* current = head->next;
+        while (current != NULL) {
+            if (rand() % 2) {
+                current->bank_balance += rand() % 100;
+            } else {
+                current->bank_balance -= rand() % 100;
+            }
+            current = current->next;
+        }
+        pthread_mutex_unlock(&mutex);
+    }
+    return NULL;
 }
 
 void write_ids_to_file(Customer *head) {
@@ -43,13 +67,27 @@ void write_ids_to_file(Customer *head) {
 
 int main() {
     srand(time(NULL));
+    pthread_mutex_init(&mutex, NULL);
+
     Customer *head = (Customer *)malloc(sizeof(Customer));
     Customer *tail = head;
     head->next = NULL;
-    while (id < 10) {
+    while (id < NUM_CUSTOMERS) {
         tail = create_Customer(tail);
     }
+
+    pthread_t threads[NUM_THREADS];
+    for (int i = 0; i < NUM_THREADS; i++) {
+        pthread_create(&threads[i], NULL, modify_balance, (void*)head);
+    }
+
+    for (int i = 0; i < NUM_THREADS; i++) {
+        pthread_join(threads[i], NULL);
+    }
+
     write_ids_to_file(head);
+
+    pthread_mutex_destroy(&mutex);
     return 0;
 }
 
