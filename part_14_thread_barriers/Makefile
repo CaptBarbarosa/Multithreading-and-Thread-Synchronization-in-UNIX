@@ -8,5 +8,10 @@
 	./1_barriers_practical_example.exe
 
 
+2:
+	gcc -o 2_dice_roll.exe 2_dice_roll.c -pthread
+	./2_dice_roll.exe
+
+
 clear:
 	rm *.exe
