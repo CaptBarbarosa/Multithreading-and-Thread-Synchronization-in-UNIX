@@ -13,5 +13,10 @@
 	./2_dice_roll.exe
 
 
+3:
+	gcc -o 3_code_vaults_example.exe 3_code_vaults_example.c -pthread
+	./3_code_vaults_example.exe
+
+
 clear:
 	rm *.exe
