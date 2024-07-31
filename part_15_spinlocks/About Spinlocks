@@ -1,0 +1,13 @@
+
+    Its mentality is simple. Assume that you are in traffic and there is red light. You most likely don't switch-off your car engine. Because you know that very soon green light will light.
+
+    The mentality behind the spinlocks is the same. Spinlocks works almost same as the normal mutexes, the only difference is:
+    In mutexes a thread is taken off the CPU by the OS Scheduler (Forced Context Switching) 
+    But in spin locks it continuously spins. (Busy waiting)
+
+
+
+
+
+
+
