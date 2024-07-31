@@ -1,0 +1,2 @@
+    The main difference between semaphores and mutexes is that in mutexes only one thread can be have the mutex. Mutexes are owned by threads that lock them. Moreover, mutexes are binary, meaning they are either locked or unlocked.
+    Semaphores are used to controll the access to a resource pool with multiple instances.They don't have ownership. Any thread can signal(increment) or wait(decrement) a semaphore. Semaphores dont have to be binary they can be more than 1.
