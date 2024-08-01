@@ -4,3 +4,5 @@
     Semaphores are used to controll the access to a resource pool with multiple instances.They don't have ownership. 
 
     Any thread can signal(increment) or wait(decrement) a semaphore. Semaphores dont have to be binary they can be more than 1.
+
+    For further reference please take a look at my notes
