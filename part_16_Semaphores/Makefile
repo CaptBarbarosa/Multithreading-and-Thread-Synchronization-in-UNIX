@@ -24,5 +24,10 @@
 	./4_named_semaphores_waiting.exe & ./4_named_semaphores_signaling.exe
 
 
+5:
+	gcc -o 5_named_semaphores_example_2.exe 5_named_semaphores_example_2.c -pthread -lrt
+	./5_named_semaphores_example_2.exe
+
+
 clear_all:
 	rm *.exe
