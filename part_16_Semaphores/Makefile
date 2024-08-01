@@ -9,8 +9,13 @@
 
 
 2:
-	gcc -o 2_codevault_login_queue_example.exe 2_codevault_login_queue_example.c -pthread
-	./2_codevault_login_queue_example.exe
+	gcc -o 2_codevault_binary_semaphores_vs_mutexes.exe 2_codevault_binary_semaphores_vs_mutexes.c -pthread
+	./2_codevault_binary_semaphores_vs_mutexes.exe
+
+
+3:
+	gcc -o 3_getting_semaphore_value.exe 3_getting_semaphore_value.c -pthread
+	./3_getting_semaphore_value.exe
 
 
 clear_all:
