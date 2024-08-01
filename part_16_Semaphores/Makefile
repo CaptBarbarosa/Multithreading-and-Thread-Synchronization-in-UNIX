@@ -18,5 +18,11 @@
 	./3_getting_semaphore_value.exe
 
 
+4:
+	gcc -o 4_named_semaphores_waiting.exe 4_named_semaphores_waiting.c -pthread
+	gcc -o 4_named_semaphores_signaling.exe 4_named_semaphores_signaling.c -pthread
+	./4_named_semaphores_waiting.exe & ./4_named_semaphores_signaling.exe
+
+
 clear_all:
 	rm *.exe
