@@ -1,82 +1,77 @@
 # Multithreading and Thread Synchronization in UNIX
 
-Welcome to the Multithreading and Thread Synchronization in UNIX repository! This project encompasses various concepts and implementations related to multithreading and thread synchronization using Pthreads in UNIX.
+Welcome to the **Multithreading and Thread Synchronization in UNIX** repository! This project covers various concepts and implementations related to multithreading and thread synchronization using Pthreads in UNIX.
 
-## About Multithreading and Thread Synchronization
+## Table of Contents
+1. [Introduction](#introduction)
+2. [Course Content](#course-content)
+3. [Resources](#resources)
+4. [Acknowledgments](#acknowledgments)
+
+## Introduction
 
 Multithreading involves running multiple threads concurrently within a process to achieve parallelism and improve performance. Thread synchronization is crucial to avoid race conditions and ensure the correctness of data when multiple threads access shared resources.
 
-### Course Content
+## Course Content
 
-This project is based on the "Part A - Multithreading & Thread Synchronization - Pthreads" course on Udemy. Here are the key topics covered:
+This project is based on the following resources:
+- Udemy Courses: 
+  - "Part A - Multithreading & Thread Synchronization - Pthreads"
+  - "Part B (ADVANCE) Multithreading Design Patterns (pthreads)"
+- Codevault YouTube Channel
+- Jacob Sorber YouTube Channel
+- Neso Academy YouTube Channel
+- Udacity YouTube Channel
 
-1. **Getting Started With Multi-Threading** 
-   - Introduction to multithreading concepts.
-   - Creating and managing threads.
+### Key Topics Covered:
 
-2. **Concurrency vs Parallelism**
-   - Understanding the difference between concurrency and parallelism. (You can find this in my PDF notes)
+1. **Intro to Multithreading**
+   - Introduction to multithreading concepts
+   - Creating and managing threads
 
-3. **Joinable and Detached Threads**
-   - Managing thread lifecycles: joinable and detached threads.
+2. **Joinable and Detached Threads**
+   - Managing thread lifecycles: joinable and detached threads
 
-4. **Inter Thread Communication**
-   - Methods for threads to communicate with each other. (You can find this in my PDF notes)
+3. **Notification Chains**
+   - Implementing notification chains for thread communication
 
-5. **Notification Chains**
-   - Implementing notification chains for thread communication. (You can find this in my PDF notes)
+4. **Asynchronous Thread Cancellation**
+   - Mechanisms for asynchronous thread cancellation
 
-6. **Thread Cancellation**
-   - Asynchronous and deferred thread cancellation mechanisms.
+5. **Deferred Thread Cancellation**
+   - Methods for deferred thread cancellation
 
-7. **Listener Threads**
-   - Creating and managing listener threads.
+6. **Thread Synchronization via Mutexes**
+   - Basic synchronization techniques using mutexes
 
-8. **Thread Synchronization**
-   - Basic synchronization techniques to prevent race conditions.
+7. **Condition Variables**
+   - Using condition variables for thread synchronization
 
-9. **Deadlocks**
-   - Understanding and preventing deadlocks.
+8. **Thread Barriers**
+   - Implementing barriers to synchronize threads
 
-10. **Condition Variables**
-    - Using condition variables for thread synchronization.
+9. **Spinlocks**
+   - Using spin locks for busy-wait synchronization
 
-11. **Dining Philosopher Problem**
-    - Solving classic synchronization problems.
+10. **Semaphores**
+    - Implementing semaphores for controlling access to resources
 
-12. **Thread Barriers**
-    - Implementing barriers to synchronize threads.
+11. **Recursive Mutexes and Locks**
+    - Understanding and using recursive mutexes
 
-13. **Spin Locks**
-    - Using spin locks for busy-wait synchronization.
-
-14. **Semaphores**
-    - Implementing semaphores for controlling access to resources.
-
-15. **Recursive Mutexes/Locks**
-    - Understanding and using recursive mutexes.
-
-16. **Read-Write Locks**
-    - Using read-write locks for efficient data access.
-
-17. **Implementing Thread Safe Highly Concurrent CRUD Operations**
-    - Ensuring thread safety in CRUD operations.
-
-18. **Appendix: Glue Based Linked List**
-    - Implementing a thread-safe linked list.
+12. **Read-Write Locks**
+    - Using read-write locks for efficient data access
 
 ## Resources
 
-This project draws from the following resources:
-
-- **Udemy Course:** "Part A - Multithreading & Thread Synchronization - Pthreads"
-- **Books:**
-  - "The Linux Programming Interface" by Michael Kerrisk
-  - "Linux Kernel Development" by Robert Love
+This project draws from the following books:
+- "The Linux Programming Interface" by Michael Kerrisk
+- "Linux Kernel Development" by Robert Love
+- "Multithreaded Programming Guide" by Oracle
 
 ## Acknowledgments
 
-Special thanks to the creators of the Udemy course and the authors of the referenced books for providing valuable insights and knowledge.
+Special thanks to the creators of the Udemy courses and the authors of the referenced books for providing valuable insights and knowledge.
 
 Feel free to explore the code, contribute, and enhance your understanding of multithreading and thread synchronization in UNIX!
 
