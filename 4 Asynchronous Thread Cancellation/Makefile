@@ -1,22 +1,19 @@
-0:
-	gcc -o 0_asynchronous_cancellation.exe 0_asynchronous_cancellation.c -pthread
-	./0_asynchronous_cancellation.exe
+# Compiler and flags
+CC = gcc
+CFLAGS = -pthread
 
+# Pattern rule for compilation and running
+%: %.c
+	$(CC) -o $@.exe $< $(CFLAGS)
+	./$@.exe
 
-1:
-	gcc -o 1_terminating_thread.exe 1_terminating_thread.c -pthread
-	./1_terminating_thread.exe
-
-
-2:
-	gcc -o 2_asynchronous_cancellation_problems.exe 2_asynchronous_cancellation_problems.c -pthread
-	./2_asynchronous_cancellation_problems.exe
-
-
-3:
-	gcc -o 3_asynchronous_cancellation_cleanup.exe 3_asynchronous_cancellation_cleanup.c -pthread
-	./3_asynchronous_cancellation_cleanup.exe
-
-
+# Target for cleaning
 clean_all:
-	rm *.exe
+	rm -v *.exe
+
+# Combined compile and run targets
+0: 0_asynchronous_cancellation
+1: 1_terminating_thread
+2: 2_asynchronous_cancellation_problems
+3: 3_asynchronous_cancellation_cleanup
+

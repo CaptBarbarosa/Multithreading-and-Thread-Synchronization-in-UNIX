@@ -1,29 +1,30 @@
-compile_1: 
-	gcc -o 1_joinable_thread.exe 1_joinable_thread.c -pthread
+# Compiler and flags
+CC = gcc
+CFLAGS = -pthread
+TARGETS = 1_joinable_thread 2_detached_thread 3_joinable_to_detach homework
 
-run_1:
-	./1_joinable_thread.exe
+# Pattern rule for compilation
+%.exe: %.c
+	$(CC) -o $@ $< $(CFLAGS)
 
+# Pattern rule for running executables
+run_%: %.exe
+	./$<
 
-compile_2:
-	gcc -o 2_detached_thread.exe 2_detached_thread.c -pthread
-
-run_2:
-	./2_detached_thread.exe
-
-
-compile_3:
-	gcc -o 3_joinable_to_detach.exe 3_joinable_to_detach.c -pthread
-
-run_3:
-	./3_joinable_to_detach.exe
-
-
-compile_homework:
-	gcc -o homework.exe homework.c -pthread
-
-run_homework:
-	./homework.exe
-
+# Target for cleaning
 clean_all:
 	rm -v *.exe
+
+# Combined compile and run targets
+1: 1_joinable_thread.exe
+	./1_joinable_thread.exe
+
+2: 2_detached_thread.exe
+	./2_detached_thread.exe
+
+3: 3_joinable_to_detach.exe
+	./3_joinable_to_detach.exe
+
+homework: homework.exe
+	./homework.exe
+
