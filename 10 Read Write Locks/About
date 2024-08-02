@@ -1,0 +1,1 @@
+    If it has write lock it also has the read lock but not vice-versa.
