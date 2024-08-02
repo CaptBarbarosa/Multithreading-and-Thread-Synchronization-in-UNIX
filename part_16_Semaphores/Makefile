@@ -29,5 +29,10 @@
 	./5_named_semaphores_example_2.exe
 
 
+6:
+	gcc -o 6_binary_semaphore_example.exe 6_binary_semaphore_example.c -pthread -lrt
+	./6_binary_semaphore_example.exe
+
+
 clear_all:
 	rm *.exe
