@@ -8,5 +8,10 @@
 	./1_codevault_example.exe
 
 
+2:
+	gcc -o 2_reentrant_function_example.exe 2_reentrant_function_example.c -pthread
+	./2_reentrant_function_example.exe
+
+
 clear_all:
 	rm *.exe
