@@ -1,4 +1,0 @@
-    It allows the same thread to acquire the lock multiple times without causing a deadlock. 
-    It keeps track of how many times the mutex is acquired by the same thread  so it releases the same amount of time.
-
-    It is useful when a function that holds the mutex needs to call another function that also needs to get the mutex lock.
